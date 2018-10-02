@@ -1,8 +1,12 @@
 package main
 
 import (
-"fmt"
-"regexp"
+	"bufio"
+	"fmt"
+	"log"
+	"os"
+	"regexp"
+	"strings"
 )
 
 func isPalindromeWithoutSpace(input string) bool {
@@ -15,7 +19,7 @@ func isPalindromeWithoutSpace(input string) bool {
 }
 func isPalindromeWithSpace(input string) bool {
 	space := regexp.MustCompile("[ ]|[\t]|[\n]")
-	input = space.ReplaceAllString(input,"")
+	input = space.ReplaceAllString(input, "")
 	for i := 0; i < len(input)/2; i++ {
 		if input[i] != input[len(input)-i-1] {
 			return false
@@ -25,9 +29,22 @@ func isPalindromeWithSpace(input string) bool {
 }
 
 func main() {
-	fmt.Println(isPalindromeWithoutSpace("anna"))
-	fmt.Println(isPalindromeWithoutSpace("not a palindrome"))
-	fmt.Println(isPalindromeWithoutSpace("o oa  aoo"))
-	fmt.Println(isPalindromeWithSpace("o oa  aoo"))
-	fmt.Println(isPalindromeWithSpace("o oa  	aoo"))
+
+	log.Println("Enter text: ")
+	reader := bufio.NewReader(os.Stdin)
+	for {
+		fmt.Print("-> ")
+		text, _ := reader.ReadString('\n')
+
+		text = strings.Replace(text, "\n", "", -1)
+		text = strings.Replace(text, "\r", "", -1)
+
+		boolPalindromo := isPalindromeWithoutSpace(text)
+		if boolPalindromo {
+			log.Println("É um palindromo")
+		} else {
+			log.Println("Não é um")
+		}
+
+	}
 }
