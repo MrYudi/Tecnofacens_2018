@@ -8,9 +8,13 @@ while resp=="s" or resp=="S":
 
     palavraInvertida = palavra[::-1]
     if(palavra==palavraInvertida):
-        print("É palindromo")
+        print("É um palíndromo")
     else:
-        print("nao é palindromo")
-    resp=input("Dejesa repetir?? S/N: ")
+        print("Não é palíndromo")
+    resp=input("Deseja repetir?? S/N: ")
     if resp=="n" or resp=="N":
         print("Até mais")
+		
+		
+		
+		

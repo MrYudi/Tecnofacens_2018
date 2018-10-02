@@ -2,12 +2,9 @@
 #include <locale.h>
 #include <stdlib.h>
 #include <string.h>
-#include <iostream>
 
 void inverter(char *p, int qtd);
 void minusculo(char *p, int qtd);
-
-using namespace std;
 
 int main()
 {
@@ -18,8 +15,8 @@ int main()
 
 	while(1==1)
 	{
-		cout << "Digite uma palavra: "; //printf("Digite uma string: ");
-	    cin >> string; //scanf("%s",string);
+		printf("Digite uma palavra: ");
+		scanf("%s",string);
 	    
 		minusculo(p, strlen(string));
 		
@@ -27,16 +24,16 @@ int main()
 		
 	    inverter(i, strlen(string));
 	    
-	    cout << "\nPalavra: " << string << "\n"; 
-	    cout << "Invertida: " << invertido << "\n"; 
+	    printf("\nPalavra: %s\n", string);
+	    printf("Invertida: %s\n", invertido);
 	    
 	    if(strcmp(string,invertido) == 0)
 	    {
-	    	cout << "É um palíndromo"; 
+	    	printf("É um palíndromo");
 		}
 		else
 		{
-			cout << "Não é um palíndromo";
+			printf("Não é um palíndromo");
 		}
 	
 	    printf("\n\n");
